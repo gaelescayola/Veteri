@@ -1,0 +1,56 @@
+<div>
+    <h1 class="title">Citas</h1>
+    <a href="/citas/create" class="button is-primary mb-4">Agregar Cita</a>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Fecha y Hora</th>
+                <th>Cliente</th>
+                <th>Mascota</th>
+                <th>Servicio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% citas.forEach((cita, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= cita.date_time %></td>
+                    <td><%= cita.cliente_name %></td> <!-- Se cambió customer_name por cliente_name -->
+                    <td><%= cita.mascota_nombre %></td> <!-- Se cambió pet_name por mascota_nombre -->
+                    <td><%= cita.servicio_nombre %></td> <!-- Se cambió service_name por servicio_nombre -->
+                    <td>
+                        <a href="/citas/edit/<%= cita.id %>" class="button is-small is-info">Editar</a>
+                        <button 
+                            class="button is-small is-danger" 
+                            onclick="confirmDelete(<%= cita.id %>)"
+                        >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(citaId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/citas/delete/${citaId}`;
+            }
+        });
+    }
+</script>

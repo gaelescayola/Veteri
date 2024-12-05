@@ -1,0 +1,54 @@
+<div>
+    <h1 class="title">Mascotas</h1>
+    <a href="/mascotas/create" class="button is-primary mb-4">Agregar Mascota</a>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Especie</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% mascotas.forEach((mascota, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= mascota.name %></td>
+                    <td><%= mascota.species %></td>
+                    <td><%= mascota.age %></td>
+                    <td>
+                        <a href="/mascotas/edit/<%= mascota.id %>" class="button is-small is-info">Editar</a>
+                        <button 
+                            class="button is-small is-danger" 
+                            onclick="confirmDelete(<%= mascota.id %>)"
+                        >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(mascotaId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/mascotas/delete/${mascotaId}`;
+            }
+        });
+    }
+</script>

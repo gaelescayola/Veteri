@@ -1,0 +1,52 @@
+<div>
+    <h1 class="title">Servicios</h1>
+    <a href="/servicios/create" class="button is-primary mb-4">Agregar Servicio</a>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% servicios.forEach((servicio, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= servicio.name %></td>
+                    <td><%= servicio.description %></td>
+                    <td>
+                        <a href="/servicios/edit/<%= servicio.id %>" class="button is-small is-info">Editar</a>
+                        <button 
+                            class="button is-small is-danger" 
+                            onclick="confirmDelete(<%= servicio.id %>)"
+                        >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(servicioId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/servicios/delete/${servicioId}`;
+            }
+        });
+    }
+</script>

@@ -1,0 +1,26 @@
+<div>
+    <h1 class="title">Crear Cliente</h1>
+    <form action="/clientes/create" method="POST">
+        <div class="field">
+            <label class="label">Nombre</label>
+            <div class="control">
+                <input class="input" type="text" name="name" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+                <input class="input" type="email" name="email" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Teléfono</label>
+            <div class="control">
+                <input class="input" type="text" name="phone" required>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+<div class="box">
+    <h1 class="title">Agregar Tratamiento</h1>
+    <form action="/tratamientos/create" method="POST">
+        <div class="field">
+            <label class="label">Nombre del Tratamiento</label>
+            <div class="control">
+                <input class="input" type="text" name="name" placeholder="Nombre del tratamiento" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+                <textarea class="textarea" name="description" placeholder="Descripción del tratamiento" required></textarea>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Fecha de Aplicación</label>
+            <div class="control">
+                <input class="input" type="date" name="date" required>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>

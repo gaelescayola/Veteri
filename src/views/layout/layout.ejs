@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Veterinaria</title>
+</head>
+<body>
+    <div class="columns is-gapless">
+        <!-- Sidebar -->
+        <aside class="column is-2 has-background-primary-dark p-4">
+            <div class="has-text-centered mb-5">
+                <h1 class="title has-text-white is-size-4">🏥 Veterinaria</h1>
+                <p class="subtitle has-text-grey-lighter is-size-6">Gestión de Veterinaria</p>
+            </div>
+            <div class="menu">
+                <p class="menu-label has-text-grey-light">Menú Principal</p>
+                <ul class="menu-list">
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/dashboard">
+                            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/customers">
+                            <i class="fas fa-user mr-2"></i> Clientes
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/pets">
+                            <i class="fas fa-paw mr-2"></i> Mascotas
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/appointments">
+                            <i class="fas fa-calendar-check mr-2"></i> Citas
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/services">
+                            <i class="fas fa-briefcase-medical mr-2"></i> Servicios
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/employees">
+                            <i class="fas fa-users mr-2"></i> Empleados
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/vaccines">
+                            <i class="fas fa-syringe mr-2"></i> Vacunas
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-text-white is-flex align-items-center" href="/treatments">
+                            <i class="fas fa-pills mr-2"></i> Tratamientos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="column is-10">
+            <section class="section">
+                <div class="container">
+                    <%- body %> <!-- Aquí se inyectarán las vistas de cada página -->
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

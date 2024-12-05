@@ -1,0 +1,79 @@
+<div>
+    <h1 class="title has-text-centered has-text-primary">🏥 Dashboard de Veterinaria</h1>
+
+    <!-- Sección de Citas -->
+    <div class="box mb-5">
+        <h2 class="subtitle has-text-primary is-italic">
+            🐾 Citas Agendadas
+        </h2>
+        <% for (let mascota in groupedCitas) { %>
+            <div class="columns is-multiline">
+                <% groupedCitas[mascota].forEach(cita => { %>
+                    <div class="column is-6">
+                        <article class="message is-info">
+                            <div class="message-header">
+                                <p>🕒 Fecha de cita: <%= cita.fecha %></p>
+                            </div>
+                            <div class="message-body">
+                                <p><strong>Cliente:</strong> <%= cita.cliente_nombre %></p>
+                                <p><strong>Mascota:</strong> <%= cita.mascota_nombre %></p>
+                                <p><strong>Motivo:</strong> <%= cita.motivo %></p>
+                                <p><strong>Empleado:</strong> <%= cita.empleado_nombre %></p>
+                                <p><strong>Servicio:</strong> <%= cita.servicio_nombre %></p>
+                            </div>
+                        </article>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Sección de Servicios -->
+    <div class="box mb-5">
+        <h2 class="subtitle has-text-primary is-italic">
+            💼 Servicios Ofrecidos
+        </h2>
+        <% for (let servicio in groupedServicios) { %>
+            <div class="columns is-multiline">
+                <% groupedServicios[servicio].forEach(servicioItem => { %>
+                    <div class="column is-6">
+                        <article class="message is-info">
+                            <div class="message-header">
+                                <p>🧴 Servicio: <%= servicioItem.nombre %></p>
+                            </div>
+                            <div class="message-body">
+                                <p><strong>Descripción:</strong> <%= servicioItem.descripcion %></p>
+                                <p><strong>Precio:</strong> $<%= servicioItem.precio.toFixed(2) %></p>
+                            </div>
+                        </article>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Sección de Empleados -->
+    <div class="box mb-5">
+        <h2 class="subtitle has-text-primary is-italic">
+            👨‍⚕️ Empleados
+        </h2>
+        <% for (let empleado in groupedEmpleados) { %>
+            <div class="columns is-multiline">
+                <% groupedEmpleados[empleado].forEach(employeeItem => { %>
+                    <div class="column is-6">
+                        <article class="message is-info">
+                            <div class="message-header">
+                                <p>👩‍⚕️ Empleado: <%= employeeItem.nombre %></p>
+                            </div>
+                            <div class="message-body">
+                                <p><strong>Puesto:</strong> <%= employeeItem.puesto %></p>
+                                <p><strong>Teléfono:</strong> <%= employeeItem.telefono %></p>
+                            </div>
+                        </article>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+</div>

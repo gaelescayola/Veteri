@@ -1,0 +1,20 @@
+<div class="box">
+    <h1 class="title">Agregar Servicio</h1>
+    <form action="/servicios/create" method="POST">
+        <div class="field">
+            <label class="label">Nombre del Servicio</label>
+            <div class="control">
+                <input class="input" type="text" name="name" placeholder="Nombre del servicio" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+                <textarea class="textarea" name="description" placeholder="Descripción del servicio" required></textarea>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>

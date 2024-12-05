@@ -1,0 +1,56 @@
+<div>
+    <h1 class="title">Empleados</h1>
+    <a href="/empleados/create" class="button is-primary mb-4">Agregar Empleado</a>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Puesto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% empleados.forEach((empleado, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= empleado.name %></td>
+                    <td><%= empleado.email %></td>
+                    <td><%= empleado.phone %></td>
+                    <td><%= empleado.position %></td>
+                    <td>
+                        <a href="/empleados/edit/<%= empleado.id %>" class="button is-small is-info">Editar</a>
+                        <button 
+                            class="button is-small is-danger" 
+                            onclick="confirmDelete(<%= empleado.id %>)"
+                        >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(empleadoId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/empleados/delete/${empleadoId}`;
+            }
+        });
+    }
+</script>
